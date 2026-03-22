@@ -201,16 +201,19 @@ font-size:20px;text-decoration:none;
 <a href="tel:+919818886660" class="call">📞</a>
 
 <script>
-function sendToWhatsApp(){
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let budget=document.getElementById("budget").value;
+function sendToWhatsApp() {
+  const name = document.getElementById('name').value || "Customer";
+  const phone = document.getElementById('phone').value || "Not provided";
+  const budget = document.getElementById('budget').value || "Not specified";
 
-let message=`New Lead:%0AName: ${name}%0APhone: ${phone}%0ABudget: ${budget}`;
-
-window.open(`https://wa.me/91XXXXXXXXXX?text=${message}`,'_blank');
+  const text = `New Lead for Jolly Properties:%0A- Name: ${name}%0A- Phone: ${phone}%0A- Budget: ${budget}`;
+  
+  const whatsappUrl = `https://wa.me/919818886660?text=${encodeURIComponent(text)}`;
+  
+  window.open(whatsappUrl, '_blank');
 }
 </script>
+
 
 </body>
 </html>
