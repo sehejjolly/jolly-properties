@@ -202,18 +202,20 @@ font-size:20px;text-decoration:none;
 
 <script>
 function sendToWhatsApp() {
-  const name = document.getElementById('name').value || "Customer";
+  // 1. Get the values from your boxes
+  const name = document.getElementById('name').value || "Client";
   const phone = document.getElementById('phone').value || "Not provided";
-  const budget = document.getElementById('budget').value || "Not specified";
+  const budget = document.getElementById('budget').value || "my budget";
 
-  const text = `New Lead for Jolly Properties:%0A- Name: ${name}%0A- Phone: ${phone}%0A- Budget: ${budget}`;
-  
-  const whatsappUrl = `https://wa.me/919818886660?text=${encodeURIComponent(text)}`;
+  // 2. Create the natural "Hello" message
+  const message = "Hello! I am " + name + ". I am looking for a property in the " + budget + " range. My phone number is " + phone + ". Please get back to me with some options!";
+
+  // 3. Open WhatsApp with the clean URL
+  const whatsappUrl = "https://wa.me/919818886660?text=" + encodeURIComponent(message);
   
   window.open(whatsappUrl, '_blank');
 }
 </script>
-
 
 </body>
 </html>
